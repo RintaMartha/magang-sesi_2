@@ -1,6 +1,11 @@
-.container1{
-    background-color: antiquewhite;
-    width: 20px;
-    height: 10px;
+.efekanimasi{
+    background-color: azure;
+    padding:15px;
+    width: 270px;
+    height: 50px;
+    margin: 25px 100px 75px 100px;
+    font-family:'Segoe UI';
+          
 
 }
+
