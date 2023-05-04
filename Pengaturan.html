@@ -10,60 +10,64 @@
     }
     </style>
 <body>
-    <p>
-    <center><img src="logo sekolah.png" width="95" height="120" /></center>
-    </p>
-    <center>
-        <h1>
-        <font color=#000080>PENGATURAN RUNNING TEXT</font>
-        </h1>
-<hr/>
-    <center>
-         <div class="efekanimasi">
-        <p align="left">
-            <font size="4">Efek Animasi</font><br>
-        </p>
-            
-                
-                    <td><label><input type="checkbox" name="remember" value="scroll" /> Scroll Kiri</label></td>
-                    <td><label><input type="checkbox" name="remember" value="scroll" /> Scroll Kanan</label></td>
-                
-            
-            </div>
-        <p>
-            <h3>Opening Text</h3>
-        </p>
-        <table bgcolor="#F5FFFA" border="2" cellpadding="20">
-            <tr>
-                <td bgcolor="#F5FFFA">TEXT</td>
-                <td><input type="text" name="text" placeholder="Masukkan Text" /></td>
-            </tr>
-        </table>
-        <p>
-            <h3>Real Time Clock</h3>
-        </p>
-        <table bgcolor="#F5FFFA" border="2" cellpadding="30">
-            <tr>
-                <td bgcolor="#F5FFFA">TIME</td>
-                <td bgcolor="#F5FFFA"><label><input type="radio" name="TIME" value="Reset" />Reset Waktu</label></td>
-            </tr>
-        </table>
-        <p>
-            <h3>Jam Pembelajaran</h3>
-        </p>
-        <table bgcolor="#F5FFFA" border="2" cellpadding="30">
-            <tr>
-                <td bgcolor="#F5FFFA">Senin- Kamis</td>
-                <td bgcolor="#F5FFFA"><label><input type="checkbox" name="remember" value="remember" /> Gunakan</label></td>
-            </tr>
-            <tr>
-                <td bgcolor="#F5FFFA">Jumat</td>
-                <td bgcolor="#F5FFFA"><label><input type="checkbox" name="remember" value="remember" /> Gunakan</label></td>
-            </tr>
-        </table>
-        <p>
-            <input type="submit" name="submit" value="Send" />
-        </p>
+    <div class="pengaturan">
+        <center>
+            <img src="logo sekolah.png" width="95" height="120" />
         </center>
+    <!-------------------------------> 
+    <h1 align="center">
+        <font color=#000080>PENGATURAN RUNNING TEXT</font>
+    </h1>
+    <hr/>
+    <!------------------------------->
+    <p>Output :</p>
+    <div class="bannerled">
+        <p align="left">       
+        </p>
+    </div>
+    <!-------------------------------> 
+    <hr/>
+   
+
+    <!-------------------------------> 
+    <div class="efekanimasi">
+        <p align="left">       
+            <b><font size="4">Efek Animasi</font><br></b>
+                <td><label><input type="checkbox" name="remember" value="scroll" /> Scroll Kiri</label></td>
+                <br />
+                <td><label><input type="checkbox" name="remember" value="scroll" /> Scroll Kanan</label></td>
+        </p>
+    </div>
+    <!------------------------------->  
+    <div class="openingtext">
+        <p align="left">
+            <b><font size="4">Opening Text</font><br></b>
+                <td>TEXT</td>
+                <td><input type="text" name="text" placeholder="Masukkan Text"  /></td>
+        </p>
+    </div>
+    <!-------------------------------> 
+    <div class="reset">
+        <p align="left">
+            <b><font size="4">Reset Waktu</font><br></b>
+                <td>TIME</td>
+                <td><label><input type="radio" name="TIME" value="Reset" />Reset Waktu</label></td>
+    </div>
+    <!-------------------------------> 
+    <div class="hari">
+        <p align="left">
+            <b><font size="4">Hari</font><br></b>
+                <td>Senin-Kamis</td>
+                <td><label><input type="checkbox" name="remember" value="remember" />  (07.00 - 15.15)</label></td>
+                <br />
+                <td>Jumat</td>
+                <td><label><input type="checkbox" name="remember" value="remember" />(07.00 - 14.30)</label></td>
+        </p>
+    </div>
+    <!------------------------------->
+    <div class="button"> <!--perlukah button menggunakan class tersendiri?--->
+        <input type="submit" name="submit" value="Send" />
+    </div>
+    
 </body>
 </html>
