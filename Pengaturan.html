@@ -14,11 +14,29 @@
                 <center>
                     <img src="logo sekolah.png" width="95" height="120" />
                 </center>
+            
             <!-------------------------------> 
             <h1 align="center">
-                <font color=#000080>PENGATURAN RUNNING TEXT</font>
+                <br />
+                    PENGATURAN RUNNING TEXT
             </h1>
             <hr/>
+            </div>
+            <!------------------------------->
+            <p id="clock"></p>
+	<script>
+	   setInterval(customClock, 500);
+	   function customClock() {
+	       var time = new Date();
+	       var hrs = time.getHours();
+	       var min = time.getMinutes();
+	       var sec = time.getSeconds();
+	       
+	       document.getElementById('clock').innerHTML = hrs + ":" + min + ":" + sec;
+	       
+	   }
+	   
+	</script>
             <!------------------------------->
             <center>
                 <h3>Hasil :</h3>
@@ -66,6 +84,6 @@
             <div class="button"> <!--perlukah button menggunakan class tersendiri?--->
                 <input type="submit" name="submit" value="Send" />
             </div>
-            
+        </center>
     </body>
 </html>

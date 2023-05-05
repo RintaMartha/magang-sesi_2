@@ -1,5 +1,5 @@
 .pengaturan{
-    margin: 50px;
+    margin: 25px 100px 15px 100px;
 }
 .bannerled{
     background-color:rgb(0, 102, 255);
@@ -43,3 +43,22 @@
     margin:30px 150px 20px 230px;
 }
 
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Montserrat', sans-serif;
+}
+body {
+	background: #000;
+	display: grid;
+	place-items: center;
+	height: 100vh;
+}
+#clock {
+	font-size: 50px;
+	background: -webkit-linear-gradient(#2b32b2, #1488cc);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-weight: 500;
+    margin: 25px 100px 15px 100px;
+}
