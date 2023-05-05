@@ -1,5 +1,10 @@
 .pengaturan{
-    margin: 25px 100px 15px 100px;
+    font-size: 20px;
+	background: -webkit-linear-gradient(#6f77c9, #3300ca);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-weight: 500;
+    margin: 15px;
 }
 .bannerled{
     background-color:rgb(0, 102, 255);
@@ -55,10 +60,10 @@ body {
 	height: 100vh;
 }
 #clock {
-	font-size: 50px;
+	font-size: 40px;
 	background: -webkit-linear-gradient(#2b32b2, #1488cc);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	font-weight: 500;
-    margin: 25px 100px 15px 100px;
+    margin: 10px 100px 15px 100px;
 }
