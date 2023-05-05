@@ -5,12 +5,20 @@
 	-webkit-text-fill-color: transparent;
 	font-weight: 500;
     margin: 15px;
+    /* Large rounded green border */
+    hr.new5 {
+    border: 10px solid green;
+    border-radius: 5px;
+  }
 }
 .bannerled{
     background-color:rgb(0, 102, 255);
     width: 310px;
     height: 155px;
     margin: 20px 100px 45px 100px;
+    border-style: solid;
+    border-color:#ffff ;
+    border-radius: 5px;
 }
 .efekanimasi{
     background-color: azure;
