@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 <head>
     <title>Halaman Pengaturan</title>
     <link rel="stylesheet" href="pengaturan.css">
     <meta charset="utf-8">
 </head>
+=======
+    <head>
+        <title>Halaman Pengaturan</title>
+        <link rel="stylesheet" href="pengaturan.css">
+    </head>
+>>>>>>> a94cc9638878143bcca71f7bef56e2ba92ad17bc
 <style>
     body {
-        background-color:#87CEEB ;
+        background-color:#d6eaf2 ;
     }
+<<<<<<< HEAD
     </style>
 <body>
     <p>
@@ -78,3 +86,84 @@
     </body>        
 </html>
         
+=======
+</style>
+    <body>
+        <div class="pengaturan">
+                <center>
+                    <img src="logo sekolah.png" width="115" height="150" />
+            <h1>
+            <br />
+                    HALAMAN PENGATURAN<br />
+                    RUNNING TEXT<br />
+            </h1>
+        <hr />
+                </center>
+        </div>
+            <!------------------------------->
+            <p id="clock"></p>
+	<script>
+	   setInterval(customClock, 500);
+	   function customClock() {
+	       var time = new Date();
+	       var hrs = time.getHours();
+	       var min = time.getMinutes();
+	       var sec = time.getSeconds();
+	       
+	       document.getElementById('clock').innerHTML = hrs + ":" + min + ":" + sec;
+	       
+	   }
+	   
+	</script>
+            <!------------------------------->
+            <center>
+                <h3>Hasil :</h3>
+            </center>
+            <div class="bannerled">
+                
+            </div>
+            <!-------------------------------> 
+            <hr/>
+            <!-------------------------------> 
+            <div class="efekanimasi">
+                <p align="left">       
+                    <b><font size="4">Efek Animasi</font><br></b>
+                        <td><label><input type="checkbox" name="remember" value="scroll" /> Scroll Kiri</label></td>
+                        <br />
+                        <td><label><input type="checkbox" name="remember" value="scroll" /> Scroll Kanan</label></td>
+                </p>
+            </div>
+            <!------------------------------->  
+            <div class="openingtext">
+                <p align="left">
+                    <b><font size="4">Opening Text</font><br></b>
+                        <td>TEXT</td>
+                        <td><input type="text" name="text" placeholder="Masukkan Text"  /></td>
+                </p>
+            </div>
+            <!-------------------------------> 
+            <div class="reset">
+                <p align="left">
+                    <b><font size="4">Reset Waktu</font><br></b>
+                        <td>TIME</td>
+                        <td><label><input type="radio" name="TIME" value="Reset" />Reset Waktu</label></td>
+            </div>
+            <!-------------------------------> 
+            <div class="hari">
+                <p align="left">
+                    <b><font size="4">Hari</font><br></b>
+                        <td>Senin-Kamis</td>
+                        <td><label><input type="checkbox" name="remember" value="remember" />  (07.00 - 15.15)</label></td>
+                        <br />
+                        <td>Jumat</td>
+                        <td><label><input type="checkbox" name="remember" value="remember" />(07.00 - 14.30)</label></td>
+                </p>
+            </div>
+            <!------------------------------->
+            <div class="button"> <!--perlukah button menggunakan class tersendiri?--->
+                <input type="submit" name="submit" value="Send" />
+            </div>
+        </center>
+    </body>
+</html>
+>>>>>>> a94cc9638878143bcca71f7bef56e2ba92ad17bc

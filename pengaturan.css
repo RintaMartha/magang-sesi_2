@@ -1,14 +1,62 @@
+.pengaturan{
+    font-size: 20px;
+	background: -webkit-linear-gradient(#6f77c9, #3300ca);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-weight: 500;
+    margin: 15px;
+    /* Large rounded green border */
+    hr.new5 {
+    border: 10px solid green;
+    border-radius: 5px;
+  }
+}
+.bannerled{
+    background-color:rgb(0, 102, 255);
+    width: 310px;
+    height: 155px;
+    margin: 20px 100px 45px 100px;
+    border-style: solid;
+    border-color:#ffff ;
+    border-radius: 5px;
+}
 .efekanimasi{
     background-color: azure;
-    padding:15px;
+    padding: 15px 20px;
     width: 270px;
-    height: 50px;
-    margin: 25px 100px 75px 100px;
+    height: 80px;
+    margin: 25px 100px 15px 100px;
     font-family:'Segoe UI';
-          
-
+}
+.openingtext{
+    background-color: azure;
+    padding: 15px 20px;
+    width: 270px;
+    height: 70px;
+    margin: 25px 100px 15px 100px;
+    font-family:'Segoe UI';
+}
+.reset{
+    padding: 15px 20px;
+    background-color: azure;
+    width: 270px;
+    height: 70px;
+    margin: 25px 100px 15px 100px;
+    font-family:'Segoe UI';
+}
+.hari{
+    background-color: azure;
+    padding: 15px 20px;
+    width: 270px;
+    height: 120px;
+    margin: 25px 100px 15px 100px;
+    font-family:'Segoe UI';
+}
+.button{
+    margin:30px 150px 20px 230px;
 }
 
+<<<<<<< HEAD
 .text{
     position: relative;;
     top: 50%;
@@ -24,3 +72,24 @@ marquee {
     font-size: 30px;
 
 }
+=======
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Montserrat', sans-serif;
+}
+body {
+	background: #000;
+	display: grid;
+	place-items: center;
+	height: 100vh;
+}
+#clock {
+	font-size: 40px;
+	background: -webkit-linear-gradient(#2b32b2, #1488cc);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-weight: 500;
+    margin: 10px 100px 15px 100px;
+}
+>>>>>>> a94cc9638878143bcca71f7bef56e2ba92ad17bc
