@@ -9,3 +9,18 @@
 
 }
 
+.text{
+    position: relative;;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+marquee {
+    height: 40px;
+    width: 90%;
+    color:tomato;
+    border: 1px solid black;
+    font-size: 30px;
+
+}
