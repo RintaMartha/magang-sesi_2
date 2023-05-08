@@ -33,14 +33,14 @@
 }
 
 .bannerled marquee {
-    height: 600px; 
-    width: 150px;
+    height: 150px; 
+    width: 100%;
     color: white;
-    font-size: 70px;
+    font-size: 100px;
     
-    top: 50%;
+    /* top: 50%;
     Left: 50%;
-    transform: translate(50% 50%);  
+    transform: translate(50% 50%);   */
 }
 
 
