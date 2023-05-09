@@ -49,31 +49,15 @@
     padding: 15px 20px;
     width: 270px;
     height: 80px;
-    margin: 25px 100px 15px 100px;
+    margin: 25px 500px 15px 100px;
     font-family:'Segoe UI';
 }
 .openingtext{
     background-color: azure;
     padding: 15px 20px;
     width: 270px;
-    height: 70px;
-    margin: 25px 100px 15px 100px;
-    font-family:'Segoe UI';
-}
-.reset{
-    padding: 15px 20px;
-    background-color: azure;
-    width: 270px;
-    height: 70px;
-    margin: 25px 100px 15px 100px;
-    font-family:'Segoe UI';
-}
-.hari{
-    background-color: azure;
-    padding: 15px 20px;
-    width: 270px;
-    height: 120px;
-    margin: 25px 100px 15px 100px;
+    height: 80px;
+    margin: -125px 5px 15px 400px;
     font-family:'Segoe UI';
 }
 .button{
