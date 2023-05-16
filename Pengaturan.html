@@ -43,7 +43,14 @@
             <br />
             <div class="bannerled">
                 <marquee direction="left">
-                    Selamat Pagi, Selamat Belajar!
+                    <script type='text/javascript'>
+                        var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
+                        var date = new Date();
+                        var day = date.getDate();
+                        var thisDay = date.getDay(),
+                        thisDay = myDays[thisDay];
+                        document.write(thisDay + ', ' + day + ' ');
+                    v</script>
                 </marquee>            
             </div>
              
