@@ -9,7 +9,15 @@
     hr.new5 {
     border: 30px;
     border-radius: 5px;
-  }
+    }
+}
+.tanggal {
+	font-size: 40px;
+	background: -webkit-linear-gradient(#2b32b2, #1488cc);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-weight: 500;
+    margin: 10px 90px 15px -190px;
 }
 #clock {
 	font-size: 40px;
@@ -17,7 +25,7 @@
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	font-weight: 500;
-    margin: 10px 100px 15px 100px;
+    margin: -68px 100px 15px 390px;
 }
 
 .bannerled{
@@ -27,9 +35,7 @@
     margin: 20px 100px 45px 100px;
     border-style: solid;
     border-color: white ;
-    border-radius: 5px;
-
-      
+    border-radius: 5px;   
 }
 
 .bannerled marquee {
@@ -37,14 +43,7 @@
     width: 100%;
     color: white;
     font-size: 100px;
-
-    
-    
-    /* top: 50%;
-    Left: 50%;
-    transform: translate(50% 50%);   */
 }
-
 
 .efekanimasi{
     background-color: azure;
@@ -63,9 +62,8 @@
     font-family:'Segoe UI';
 }
 .button{
-    margin:30px 150px 20px 230px;
+    margin:20px 100px 20px 97px;
 }
-
 
 .text{
     position: relative;;
@@ -73,7 +71,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 
 * {
 	margin: 0;

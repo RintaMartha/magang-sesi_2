@@ -21,7 +21,16 @@
         <hr />
                 </center>
         </div>
-            
+        <div class="tanggal">
+                <script type='text/javascript'>
+                    var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
+                    var date = new Date();
+                    var day = date.getDate();
+                    var thisDay = date.getDay(),
+                    thisDay = myDays[thisDay];
+                    document.write(thisDay + ', ' + day + ' ');
+                </script>           
+        </div>   
         <p id="clock"></p>
             <script>
                 setInterval(customClock, 500);
@@ -31,28 +40,15 @@
                     var min = time.getMinutes();
                     var sec = time.getSeconds();
                     
-                    document.getElementById('clock').innerHTML = hrs + ":" + min + ":" + sec;
-                    
-            }
-            
+                    document.getElementById('clock').innerHTML = hrs + ":" + min + ":" + sec;   
+                }
             </script>
             
             <center>
                 <h3>Hasil :</h3>
             </center>
             <br />
-            <div class="bannerled">
-                <marquee direction="left">
-                    <script type='text/javascript'>
-                        var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
-                        var date = new Date();
-                        var day = date.getDate();
-                        var thisDay = date.getDay(),
-                        thisDay = myDays[thisDay];
-                        document.write(thisDay + ', ' + day + ' ');
-                    v</script>
-                </marquee>            
-            </div>
+
              
             <hr/>
              
@@ -72,7 +68,7 @@
                         <td><input type="text" name="text" placeholder="Masukkan Text"  /></td>
                 </p>
             </div>
-            <div class="button"> <!--perlukah button menggunakan class tersendiri?--->
+            <div class="button">
                 <input type="submit" name="submit" value="Send" />
             </div>
         </center>
