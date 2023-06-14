@@ -120,14 +120,50 @@
             <!------------------------------->
             <div class="bannerled">
                 <marquee direction="left">
-                    <div class="font">
-                        halo teman teman
-                    </div>
-                </marquee>            
+                    <p id="pesan"></p>
+                </marquee> 
+                <script>
+                    let waktu = new Date().getHours();
+                    let ucapan;
+
+                    if (waktu == 20){
+                        ucapan = "Jam Ke-1";
+                    }else if (waktu == 8){
+                        ucapan = "Jam Ke-2";
+                    }else if (waktu == 8){
+                        ucapan = "Jam Ke-3";
+                    }else if (waktu == 8){
+                        ucapan = "Jam Ke-4";
+                    }else if (waktu == 8){
+                        ucapan = "Jam Ke-5";
+                    }else if (waktu == 8){
+                        ucapan = "Jam Ke-6";
+                    }else if (waktu == 8){
+                        ucapan = "Jam Ke-7";
+                    }else if (waktu == 8){
+                        ucapan = "Jam Ke-8";
+                    }else if (waktu == 8){
+                        ucapan = "Jam Ke-9";
+                    }else if (waktu == 8){
+                        ucapan = "Jam Ke-10";
+                    }else if (waktu == 8){
+                        ucapan = "Istirahat";
+                    }else if (waktu == 8){
+                        ucapan = "Terimakasih atas kerja keras anda!";
+                    }else{
+                        ucapan = "SMK Negeri 9 Semarang"
+                    }
+                    
+
+                    document.getElementById("pesan").innerHTML = ucapan;
+
+                </script>
+                
             </div>
             <center>
                 <h3>Hasil :</h3>
             </center>
         </center>
     </body>
+    
 </html>
