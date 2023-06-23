@@ -59,6 +59,7 @@
                     if(hrs == 15 && min == 16){
                         //count=count+1;
                         audio1.play();
+                        
 
                     }
                     else if (hrs == 13 && min == 47){
@@ -142,7 +143,7 @@
 
                 </script>
               </div>  
-            </div>
+            </div>
             
         </center>
     </body>
