@@ -118,6 +118,21 @@
                     document.getElementById('clock').innerHTML = hrs + ":" + min + ":" + sec;
                 }
             </script>
+            <?php
+                include "config.php";
+                 date_default_timezone_set('Asia/Jakarta');
+                 $current_time = date('H:i');
+                 echo $current_time;
+
+                    if ($current_time == "23:08") {
+                        $sql = "UPDATE alarm SET pelajaran = 1 WHERE id = 1";
+                            if (mysqli_query($db, $sql)) {
+                                echo "Data berhasil diperbarui";
+                            } else {
+                              echo "Terjadi kesalahan: " . mysqli_error($db);
+                            }
+                    }
+            ?>
             <!------------------------------->
             <div class="bannerled">
                 <div class="font">
