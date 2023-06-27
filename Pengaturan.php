@@ -118,21 +118,6 @@
                     document.getElementById('clock').innerHTML = hrs + ":" + min + ":" + sec;
                 }
             </script>
-           <!-- <?php
-                    // include "config.php";
-                    // date_default_timezone_set('Asia/Jakarta');
-                    // $current_time = date('H:i:s');
-                    // echo $current_time;  
-    
-                    //     if($current_time == "22:10:00") {
-                    //  $sql = "UPDATE alarm SET pelajaran = 2 WHERE id = 1";
-                    // if(mysqli_query($conn, $sql)) {
-                    //      echo "Data berhasil diperbarui";
-                    // } else {
-                    //     echo "Terjadi kesalahan: " . mysqli_error($conn);
-                    //     }
-                    // }
-            ?> -->
  <?php
     include "config.php";
     date_default_timezone_set('Asia/Jakarta');
@@ -152,7 +137,7 @@
             else if ($current_time == "8:30") {
                 $sql = "UPDATE alarm SET pelajaran = 3 WHERE id = 1";
                 $update = mysqli_query($db, $sql);
-            }2
+            }
             else if ($current_time == "13:38") {
                 $sql = "UPDATE alarm SET pelajaran = 4 WHERE id = 1";
                 $update = mysqli_query($db, $sql);
@@ -186,8 +171,7 @@
                 $update = mysqli_query($db, $sql);
             }
         }//akhir kondisi untuk hari senin-kamis
-        else{//kondisi untuk hari jumat
-            if($hariIni = "Friday") {// kondisi untuk hari senin-kamis  
+        else{//kondisi untuk hari jumat  
                 if ($current_time == "07:00") {
                     $sql = "UPDATE alarm SET pelajaran = 1 WHERE id = 1";
                     $update = mysqli_query($db, $sql);
@@ -232,8 +216,7 @@
                     $sql = "UPDATE alarm SET pelajaran = 11 WHERE id = 1";
                     $update = mysqli_query($db, $sql);
                 }
-            }
-
+            
         }
         
         $select = "SELECT `pelajaran` FROM `alarm` WHERE id=1";
