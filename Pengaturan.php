@@ -141,17 +141,98 @@
 
 
         if($hariIni != "Friday") {// kondisi untuk hari senin-kamis  
-            if ($current_time == "22:45") {
-                $sql = "UPDATE alarm SET pelajaran = 6 WHERE id = 1";
+            if ($current_time == "13:30") {
+                $sql = "UPDATE alarm SET pelajaran = 1 WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
             else if ($current_time == "7:45") {
                 $sql = "UPDATE alarm SET pelajaran = 2 WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
+            else if ($current_time == "8:30") {
+                $sql = "UPDATE alarm SET pelajaran = 3 WHERE id = 1";
+                $update = mysqli_query($db, $sql);
+            }2
+            else if ($current_time == "13:38") {
+                $sql = "UPDATE alarm SET pelajaran = 4 WHERE id = 1";
+                $update = mysqli_query($db, $sql);
+            }
+            else if ($current_time == "10:15") {
+                $sql = "UPDATE alarm SET pelajaran = 5 WHERE id = 1";
+                $update = mysqli_query($db, $sql);
+            }
+            else if ($current_time == "11:00") {
+                $sql = "UPDATE alarm SET pelajaran = 6 WHERE id = 1";
+                $update = mysqli_query($db, $sql);
+            }
+            else if ($current_time == "12:15") {
+                $sql = "UPDATE alarm SET pelajaran = 7 WHERE id = 1";
+                $update = mysqli_query($db, $sql);
+            }
+            else if ($current_time == "13:00") {
+                $sql = "UPDATE alarm SET pelajaran = 8 WHERE id = 1";
+                $update = mysqli_query($db, $sql);
+            }
+            else if ($current_time == "13:45") {
+                $sql = "UPDATE alarm SET pelajaran = 9 WHERE id = 1";
+                $update = mysqli_query($db, $sql);
+            }
+            else if ($current_time == "14:30") {
+                $sql = "UPDATE alarm SET pelajaran = 10 WHERE id = 1";
+                $update = mysqli_query($db, $sql);
+            }
+            else if ($current_time == "15:15") {
+                $sql = "UPDATE alarm SET pelajaran = 11 WHERE id = 1";
+                $update = mysqli_query($db, $sql);
+            }
         }//akhir kondisi untuk hari senin-kamis
         else{//kondisi untuk hari jumat
-
+            if($hariIni = "Friday") {// kondisi untuk hari senin-kamis  
+                if ($current_time == "07:00") {
+                    $sql = "UPDATE alarm SET pelajaran = 1 WHERE id = 1";
+                    $update = mysqli_query($db, $sql);
+                }
+                else if ($current_time == "7:35") {
+                    $sql = "UPDATE alarm SET pelajaran = 2 WHERE id = 1";
+                    $update = mysqli_query($db, $sql);
+                }
+                else if ($current_time == "8:10") {
+                    $sql = "UPDATE alarm SET pelajaran = 3 WHERE id = 1";
+                    $update = mysqli_query($db, $sql);
+                }
+                else if ($current_time == "8:45") {
+                    $sql = "UPDATE alarm SET pelajaran = 4 WHERE id = 1";
+                    $update = mysqli_query($db, $sql);
+                }
+                else if ($current_time == "9:35") {
+                    $sql = "UPDATE alarm SET pelajaran = 5 WHERE id = 1";
+                    $update = mysqli_query($db, $sql);
+                }
+                else if ($current_time == "10:10") {
+                    $sql = "UPDATE alarm SET pelajaran = 6 WHERE id = 1";
+                    $update = mysqli_query($db, $sql);
+                }
+                else if ($current_time == "10:45") {
+                    $sql = "UPDATE alarm SET pelajaran = 7 WHERE id = 1";
+                    $update = mysqli_query($db, $sql);
+                }
+                else if ($current_time == "11:20") {
+                    $sql = "UPDATE alarm SET pelajaran = 8 WHERE id = 1";
+                    $update = mysqli_query($db, $sql);
+                }
+                else if ($current_time == "12:50") {
+                    $sql = "UPDATE alarm SET pelajaran = 9 WHERE id = 1";
+                    $update = mysqli_query($db, $sql);
+                }
+                else if ($current_time == "13:25") {
+                    $sql = "UPDATE alarm SET pelajaran = 10 WHERE id = 1";
+                    $update = mysqli_query($db, $sql);
+                }
+                else if ($current_time == "14:00") {
+                    $sql = "UPDATE alarm SET pelajaran = 11 WHERE id = 1";
+                    $update = mysqli_query($db, $sql);
+                }
+            }
 
         }
         
