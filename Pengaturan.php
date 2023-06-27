@@ -124,8 +124,8 @@
                  $current_time = date('H:i');
                  echo $current_time;
 
-                    if ($current_time == "23:08") {
-                        $sql = "UPDATE alarm SET pelajaran = 1 WHERE id = 1";
+                    if ($current_time == "14:19") {
+                        $sql = "UPDATE alarm SET pelajaran = 2 WHERE id = 1";
                             if (mysqli_query($db, $sql)) {
                                 echo "Data berhasil diperbarui";
                             } else {
