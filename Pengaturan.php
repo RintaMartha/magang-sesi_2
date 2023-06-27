@@ -56,7 +56,7 @@
                     var audio13 = new Audio('Bel/013.wav'); //breaktime
                     var audio14 = new Audio('Bel/014.wav'); //pulang
   
-                    if(hrs == 15 && min == 16){
+                    if(hrs == 21 && min == 39){
                         //count=count+1;
                         audio1.play();
                         
@@ -118,21 +118,50 @@
                     document.getElementById('clock').innerHTML = hrs + ":" + min + ":" + sec;
                 }
             </script>
-            <?php
-                include "config.php";
-                 date_default_timezone_set('Asia/Jakarta');
-                 $current_time = date('H:i');
-                 echo $current_time;
+           <!-- <?php
+                    // include "config.php";
+                    // date_default_timezone_set('Asia/Jakarta');
+                    // $current_time = date('H:i:s');
+                    // echo $current_time;  
+    
+                    //     if($current_time == "22:10:00") {
+                    //  $sql = "UPDATE alarm SET pelajaran = 2 WHERE id = 1";
+                    // if(mysqli_query($conn, $sql)) {
+                    //      echo "Data berhasil diperbarui";
+                    // } else {
+                    //     echo "Terjadi kesalahan: " . mysqli_error($conn);
+                    //     }
+                    // }
+            ?> -->
+ <?php
+    include "config.php";
+    date_default_timezone_set('Asia/Jakarta');
+    $current_time = date('H:i');
+    $hariIni = date('l');
 
-                    if ($current_time == "14:19") {
-                        $sql = "UPDATE alarm SET pelajaran = 2 WHERE id = 1";
-                            if (mysqli_query($db, $sql)) {
-                                echo "Data berhasil diperbarui";
-                            } else {
-                              echo "Terjadi kesalahan: " . mysqli_error($db);
-                            }
-                    }
-            ?>
+
+        if($hariIni != "Friday") {// kondisi untuk hari senin-kamis  
+            if ($current_time == "22:45") {
+                $sql = "UPDATE alarm SET pelajaran = 6 WHERE id = 1";
+                $update = mysqli_query($db, $sql);
+            }
+            else if ($current_time == "7:45") {
+                $sql = "UPDATE alarm SET pelajaran = 2 WHERE id = 1";
+                $update = mysqli_query($db, $sql);
+            }
+        }//akhir kondisi untuk hari senin-kamis
+        else{//kondisi untuk hari jumat
+
+
+        }
+        
+        $select = "SELECT `pelajaran` FROM `alarm` WHERE id=1";
+        $result = mysqli_query($db, $select);
+        $row = mysqli_fetch_assoc($result);
+        $pelajaran = $row['pelajaran'];
+        echo "Sekarang Pelajaran ke: " . $pelajaran;
+    ?>
+
             <!------------------------------->
             <div class="bannerled">
                 <div class="font">
@@ -151,14 +180,14 @@
                         ucapan = "Terimakasih atas kerja keras anda!";
                         
                     }else{
-                        ucapan = "SMK Negeri 9 Semarang"
+                        ucapan = "Pelajaran ke -"
                     }
                     
                     document.getElementById("pesan").innerHTML = ucapan;
 
                 </script>
               </div>  
-            </div>
+            </div>
             
         </center>
     </body>
