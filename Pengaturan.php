@@ -309,18 +309,18 @@
             }
         }    
         
-        $select = "SELECT `pelajaran` FROM `alarm` WHERE id=1";
-        $result = mysqli_query($db, $select);
-        $row = mysqli_fetch_assoc($result);
-        $pelajaran = $row['pelajaran'];
-        echo "Sekarang Pelajaran ke: " . $pelajaran;
-        if($upacara == 0) {
-            echo "sekarang tidak upacara";
-           
-        }
-        else {
-             echo "sekarang upacara";
-        }  
+                $select = "SELECT `pelajaran` FROM `alarm` WHERE id=1";
+                $result = mysqli_query($db, $select);
+                $row = mysqli_fetch_assoc($result);
+                $pelajaran = $row['pelajaran'];
+                echo "Sekarang Pelajaran ke: " . $pelajaran . " ";
+                echo "<br>"; 
+                if($upacara == 0) {
+                    echo "sekarang tidak upacara";
+                } else {
+                    echo "sekarang upacara";
+                }
+
     ?>
 
             <!------------------------------->
