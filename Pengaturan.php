@@ -88,6 +88,7 @@
                     var hrs = time.getHours();
                     var min = time.getMinutes();
                     var sec = time.getSeconds();
+                    var milsec = time.getMilliseconds();
                     var count = 0;
                     var audio1 = new Audio('feel.mp3');
                     var audio2 = new Audio('Bel/02.wav');
@@ -103,65 +104,78 @@
                     var audio12 = new Audio('Bel/012.wav'); //breaktime empty in 5 mnt
                     var audio13 = new Audio('Bel/013.wav'); //breaktime
                     var audio14 = new Audio('Bel/014.wav'); //pulang
-  
-                    if(hrs == 21 && min == 39){
-                        //count=count+1;
-                        audio1.play();
-                        
+                    var isReloaded = false;
+                    var isUpacara = <?php echo $upacara; ?>;
+                    
+                    if (isUpacara == 0){
+                        if(thisDay !== 'Jum&#39;at'){
+                            if(hrs == 16 && min == 06 && sec == 0 && !isReloaded){
+                                isReloaded = true; location.reload();audio1.play();                        
+                            }
+                            else if (hrs == 15 && min == 7 && sec == 0 && !isReloadedd){
+                                isReloaded = true;
+                                location.reload();
+                                audio2.play();
 
-                    }
-                    else if (hrs == 13 && min == 47){
-                        audio2.play();
+                            }
+                            else if (hrs == 21 && min == 13){
+                                audio3.play();
+                                
+                            }
+                            else if (hrs == 7 && min == 54 && sec==1){
+                                audio4.play();
+                                
+                            }
+                            else if (hrs == 21 && min == 18 && sec== 1){
+                                audio5.play();
+                                
+                            }
+                            else if (hrs == 17 && min == 1 && sec==1){
+                                audio6.play();
+                                
+                            }
+                            else if (hrs == 17 && min == 2 && sec==1){
+                                audio7.play();
+                                
+                            }
+                            else if (hrs == 5 && min == 57 && sec==30){
+                                audio8.play();
+                                
+                            }
+                            else if (hrs == 17 && min == 5 && sec==1){
+                                audio9.play();
+                                
+                            }
+                            else if (hrs == 15 && min == 30 && sec==1){
+                                audio10.play();
+                                
+                            }
+                            else if (hrs == 17 && min == 6 && sec==2){
+                                audio11.play();
+                                
+                            }
+                            else if (hrs == 15 && min == 30 && sec==1){
+                                audio12.play();
+                                
+                            }
+                            else if (hrs == 15 && min == 30 && sec==1){
+                                audio13.play();
+                                
+                            }
+                            else if (hrs == 15 && min == 30 && sec==1){
+                                audio14.play();
+                                
+                            }
+                        }
+                        else{//kondisi ini berisikan jadwal khusus hari jumat
 
+                        }
                     }
-                    else if (hrs == 21 && min == 13){
-                        audio3.play();
-                        
-                    }
-                    else if (hrs == 7 && min == 54 && sec==1){
-                        audio4.play();
-                        
-                    }
-                    else if (hrs == 21 && min == 18 && sec== 1){
-                        audio5.play();
-                        
-                    }
-                    else if (hrs == 17 && min == 1 && sec==1){
-                        audio6.play();
-                        
-                    }
-                    else if (hrs == 17 && min == 2 && sec==1){
-                        audio7.play();
-                        
-                    }
-                    else if (hrs == 5 && min == 57 && sec==30){
-                        audio8.play();
-                        
-                    }
-                    else if (hrs == 17 && min == 5 && sec==1){
-                        audio9.play();
-                        
-                    }
-                    else if (hrs == 15 && min == 30 && sec==1){
-                        audio10.play();
-                        
-                    }
-                    else if (hrs == 17 && min == 6 && sec==2){
-                        audio11.play();
-                        
-                    }
-                    else if (hrs == 15 && min == 30 && sec==1){
-                        audio12.play();
-                        
-                    }
-                    else if (hrs == 15 && min == 30 && sec==1){
-                        audio13.play();
-                        
-                    }
-                    else if (hrs == 15 && min == 30 && sec==1){
-                        audio14.play();
-                        
-                    }
+                    else{//kondisi ini berisikan jadwal khusus upacara
+                        if(hrs == 16 && min == 07 && sec == 0 && !isReloaded){
+                                isReloaded = true; location.reload();audio1.play();                        
+                            }
+                    }        
 
                     document.getElementById('clock').innerHTML = hrs + ":" + min + ":" + sec;
                 }
@@ -169,8 +183,8 @@
  <?php
         if ($upacara == 0) {
             if($hariIni != "Friday") {// kondisi untuk hari senin-kamis  
-                if ($current_time == "13:30") {
-                    $sql = "UPDATE alarm SET pelajaran = 1 WHERE id = 1";
+                if ($current_time == "16:06") {
+                    $sql = "UPDATE alarm SET pelajaran = 8 WHERE id = 1";
                     $update = mysqli_query($db, $sql);
                 }
                 else if ($current_time == "7:45") {
@@ -215,7 +229,7 @@
                 }
             }//akhir kondisi untuk hari senin-kamis
             else{//kondisi untuk hari jumat  
-                    if ($current_time == "07:00") {
+                    if ($current_time == "16:00") {
                         $sql = "UPDATE alarm SET pelajaran = 1 WHERE id = 1";
                         $update = mysqli_query($db, $sql);
                     }
@@ -263,8 +277,8 @@
             }//akhir kondisi untuk hari jumat
         }
         else{//kondisi untuk hari upacara
-            if ($current_time == "07:00") {
-                $sql = "UPDATE alarm SET pelajaran = 1 WHERE id = 1";
+            if ($current_time == "16:07") {
+                $sql = "UPDATE alarm SET pelajaran = 2 WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
             else if ($current_time == "7:35") {
@@ -313,7 +327,7 @@
                 $result = mysqli_query($db, $select);
                 $row = mysqli_fetch_assoc($result);
                 $pelajaran = $row['pelajaran'];
-                echo "Sekarang Pelajaran ke: " . $pelajaran . " ";
+                echo "Sekarang Pelajaran ke:aa " . $pelajaran . " ";
                 echo "<br>"; 
                 if($upacara == 0) {
                     echo "sekarang tidak upacara";
