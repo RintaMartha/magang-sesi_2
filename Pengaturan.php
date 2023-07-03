@@ -159,12 +159,17 @@
                         }
                     }
                     else{//hari upacara
-                        if(hrs == 13 && min > 12 && sec > 0 && hrs < 14 && min 5 && sec 00  && !isReloaded){
-                                location.reload(); isReloaded = true;audio1.play();                        
-                            }
-                            else if(hrs == 7 && min == 00 && sec == 0 && !isReloaded){
-                                location.reload(); isReloaded = true; audio2.play();                        
-                            }
+                        if (hrs == 14 && min > 0 && sec > 0 && hrs < 14 && min < 10 && sec < 60 && !isReloaded) {
+                            location.reload();
+                            isReloaded = true;
+                            audio1.play();
+                        }
+                        else if (hrs == 7 && min == 0 && sec == 0 && !isReloaded) {
+                            location.reload();
+                            isReloaded = true;
+                            audio2.play();
+                        }
+
                             else if(hrs == 7 && min == 40 && sec == 0 && !isReloaded){
                                 isReloaded = true; location.reload();audio2.play();                        
                             }
@@ -306,8 +311,8 @@
             }//penutup hari jumat 
         }//penutup bukan hari upacara
         else{//kondisi untuk hari upacara
-            if ($current_time > "13:12" && $current_time < "14:05") {
-                $sql = "UPDATE alarm SET pelajaran = 8 WHERE id = 1";
+            if ($current_time > "14:00" && $current_time < "14:10") {
+                $sql = "UPDATE alarm SET pelajaran = 12 WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
             else if ($current_time == "7:35") {
