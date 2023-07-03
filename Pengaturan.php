@@ -159,56 +159,58 @@
                         }
                     }
                     else{//hari upacara
-                        if (hrs == 14 && min > 0 && sec > 0 && hrs < 14 && min < 10 && sec < 60 && !isReloaded) {
+                        if (hrs == 7 && min > 0 && sec > 0 && hrs < 7 && min < 39 && sec < 60 && !isReloaded) {
                             location.reload();
                             isReloaded = true;
                             audio1.play();
                         }
-                        else if (hrs == 7 && min == 0 && sec == 0 && !isReloaded) {
+                        else if (hrs == 8 && min > 20 && sec > 0 && hrs < 8 && min < 59 && sec < 60 && !isReloaded) {
                             location.reload();
                             isReloaded = true;
                             audio2.play();
                         }
+                        else if (hrs == 9 && min > 00 && sec > 0 && hrs < 9 && min < 39 && sec < 60 && !isReloaded) {
+                            location.reload();
+                            isReloaded = true;
+                            audio3.play();
+                        }
+                        else if (hrs == 9 && min > 55 && sec > 0 && hrs < 10 && min < 34 && sec < 60 && !isReloaded) {
+                            location.reload();
+                            isReloaded = true;
+                            audio4.play();
+                        }
+                        else if (hrs == 10 && min > 35 && sec > 0 && hrs < 11 && min < 14 && sec < 60 && !isReloaded) {
+                            location.reload();
+                            isReloaded = true;
+                            audio5.play();
+                        }
+                        else if (hrs == 11 && min > 15 && sec > 0 && hrs < 11 && min < 54 && sec < 60 && !isReloaded) {
+                            location.reload();
+                            isReloaded = true;
+                            audio6.play();
+                        }
+                        else if (hrs == 12 && min > 35 && sec > 0 && hrs < 13 && min < 14 && sec < 60 && !isReloaded) {
+                            location.reload();
+                            isReloaded = true;
+                            audio7.play();
+                        }
+                        else if (hrs == 13 && min > 15 && sec > 0 && hrs < 13 && min < 54 && sec < 60 && !isReloaded) {
+                            location.reload();
+                            isReloaded = true;
+                            audio8.play();
+                        }
+                        else if (hrs == 13 && min > 55 && sec > 0 && hrs < 14 && min < 34 && sec < 60 && !isReloaded) {
+                            location.reload();
+                            isReloaded = true;
+                            audio9.play();
+                        }
+                        else if (hrs == 14 && min > 35 && sec > 0 && hrs < 15 && min < 14 && sec < 60 && !isReloaded) {
+                            location.reload();
+                            isReloaded = true;
+                            audio10.play();
+                        }//hari upacara
+                        
 
-                            else if(hrs == 7 && min == 40 && sec == 0 && !isReloaded){
-                                isReloaded = true; location.reload();audio2.play();                        
-                            }
-                            else if(hrs == 8 && min == 20 && sec == 0 && !isReloaded){
-                                isReloaded = true; location.reload();audio2.play();                        
-                            }
-                            else if(hrs == 9 && min == 00 && sec == 0 && !isReloaded){
-                                isReloaded = true; location.reload();audio3.play();                        
-                            }
-                            else if(hrs == 9 && min == 40 && sec == 0 && !isReloaded){
-                                isReloaded = true; location.reload();audio4.play();                        
-                            }
-                            else if(hrs == 9 && min == 55 && sec == 0 && !isReloaded){
-                                isReloaded = true; location.reload();audio5.play();                        
-                            }
-                            else if(hrs == 10 && min == 35 && sec == 0 && !isReloaded){
-                                isReloaded = true; location.reload();audio6.play();                        
-                            }
-                            else if(hrs == 11 && min == 15 && sec == 0 && !isReloaded){
-                                isReloaded = true; location.reload();audio7.play();                        
-                            }
-                            else if(hrs == 11 && min == 55 && sec == 0 && !isReloaded){
-                                isReloaded = true; location.reload();audio8.play();                        
-                            }
-                            else if(hrs == 12 && min == 35 && sec == 0 && !isReloaded){
-                                isReloaded = true; location.reload();audio9.play();                        
-                            }
-                            else if(hrs == 13 && min == 15 && sec == 0 && !isReloaded){
-                                isReloaded = true; location.reload();audio10.play();                        
-                            }
-                            else if(hrs == 13 && min == 55 && sec == 0 && !isReloaded){
-                                isReloaded = true; location.reload();audio11.play();                        
-                            }
-                            else if(hrs == 14 && min == 35 && sec == 0 && !isReloaded){
-                                isReloaded = true; location.reload();audio12.play();                        
-                            }
-                            else if(hrs == 15 && min == 15 && sec == 0 && !isReloaded){
-                                isReloaded = true; location.reload();audio13.play();                        
-                            }
                     } //penutup hari upacara        
 
                     document.getElementById('clock').innerHTML = hrs + ":" + min + ":" + sec;
@@ -311,48 +313,49 @@
             }//penutup hari jumat 
         }//penutup bukan hari upacara
         else{//kondisi untuk hari upacara
-            if ($current_time > "14:00" && $current_time < "14:10") {
-                $sql = "UPDATE alarm SET pelajaran = 12 WHERE id = 1";
+            if ($current_time > "07:00" && $current_time < "07:39") {
+                $sql = "UPDATE alarm SET pelajaran = "upacara" WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
-            else if ($current_time == "7:35") {
-                $sql = "UPDATE alarm SET pelajaran = 2 WHERE id = 1";
+            if ($current_time > "07:40" && $current_time < "08:19") {
+                $sql = "UPDATE alarm SET pelajaran = "1" WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
-            else if ($current_time == "8:10") {
-                $sql = "UPDATE alarm SET pelajaran = 3 WHERE id = 1";
+            
+            if ($current_time > "08:20" && $current_time < "08:59") {
+                $sql = "UPDATE alarm SET pelajaran = "2" WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
-            else if ($current_time == "8:45") {
-                $sql = "UPDATE alarm SET pelajaran = 4 WHERE id = 1";
+            if ($current_time > "09:00" && $current_time < "09:39") {
+                $sql = "UPDATE alarm SET pelajaran = "3" WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
-            else if ($current_time == "9:35") {
-                $sql = "UPDATE alarm SET pelajaran = 5 WHERE id = 1";
+            if ($current_time > "09:55" && $current_time < "10:34") {
+                $sql = "UPDATE alarm SET pelajaran = "4" WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
-            else if ($current_time == "10:10") {
-                $sql = "UPDATE alarm SET pelajaran = 6 WHERE id = 1";
+            if ($current_time > "10:35" && $current_time < "11:14") {
+                $sql = "UPDATE alarm SET pelajaran = "5" WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
-            else if ($current_time == "10:45") {
-                $sql = "UPDATE alarm SET pelajaran = 7 WHERE id = 1";
+            if ($current_time > "11:15" && $current_time < "11:54") {
+                $sql = "UPDATE alarm SET pelajaran = "6" WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
-            else if ($current_time == "11:20") {
-                $sql = "UPDATE alarm SET pelajaran = 8 WHERE id = 1";
+            if ($current_time > "12:35" && $current_time < "13:14") {
+                $sql = "UPDATE alarm SET pelajaran = "7" WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
-            else if ($current_time == "12:50") {
-                $sql = "UPDATE alarm SET pelajaran = 9 WHERE id = 1";
+            if ($current_time > "13:15" && $current_time < "13:54") {
+                $sql = "UPDATE alarm SET pelajaran = "8" WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
-            else if ($current_time == "13:25") {
-                $sql = "UPDATE alarm SET pelajaran = 10 WHERE id = 1";
+            if ($current_time > "13:55" && $current_time < "14:34") {
+                $sql = "UPDATE alarm SET pelajaran = "9" WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
-            else if ($current_time == "14:00") {
-                $sql = "UPDATE alarm SET pelajaran = 11 WHERE id = 1";
+            if ($current_time > "14:35" && $current_time < "15:15") {
+                $sql = "UPDATE alarm SET pelajaran = "10" WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
         }//penutup kondisi untuk hari upacara  
@@ -369,7 +372,7 @@
                     echo "sekarang upacara";
                 }
 
-    ?>
+?>
 
             <!------------------------------->
             <div class="bannerled">
