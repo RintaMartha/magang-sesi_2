@@ -107,83 +107,112 @@
                     var isReloaded = false;
                     var isUpacara = <?php echo $upacara; ?>;
                     
-                    if (isUpacara == 0){
-                        if(thisDay !== 'Jum&#39;at'){
-                            if(hrs == 16 && min == 06 && sec == 0 && !isReloaded){
-                                isReloaded = true; location.reload();audio1.play();                        
+                    if (isUpacara == 0){ //ini bukan hari upacara
+                        if(thisDay !== 'Jum&#39;at'){ //senin kamis
+                            if(hrs == 7 && min == 0 && sec == 0 && !isReloaded){
+                                isReloaded = true; location.reload(); audio1.play();                        
                             }
-                            else if (hrs == 15 && min == 7 && sec == 0 && !isReloadedd){
-                                isReloaded = true;
-                                location.reload();
-                                audio2.play();
-
+                            else if (hrs == 7 && min == 40 && sec == 0 && !isReloadedd){
+                                isReloaded = true; location.reload(); audio2.play();
                             }
-                            else if (hrs == 21 && min == 13){
-                                audio3.play();
-                                
+                            else if (hrs == 7 && min == 40 && sec == 0 && !isReloadedd){
+                                isReloaded = true; location.reload(); audio2.play();
                             }
-                            else if (hrs == 7 && min == 54 && sec==1){
-                                audio4.play();
-                                
+                            else if (hrs == 7 && min == 40 && sec == 0 && !isReloadedd){
+                                isReloaded = true; location.reload(); audio2.play();
                             }
-                            else if (hrs == 21 && min == 18 && sec== 1){
-                                audio5.play();
-                                
+                            else if (hrs == 7 && min == 40 && sec == 0 && !isReloadedd){
+                                isReloaded = true; location.reload(); audio2.play();
                             }
-                            else if (hrs == 17 && min == 1 && sec==1){
-                                audio6.play();
-                                
+                            else if (hrs == 7 && min == 40 && sec == 0 && !isReloadedd){
+                                isReloaded = true; location.reload(); audio2.play();
                             }
-                            else if (hrs == 17 && min == 2 && sec==1){
-                                audio7.play();
-                                
+                            else if (hrs == 7 && min == 40 && sec == 0 && !isReloadedd){
+                                isReloaded = true; location.reload(); audio2.play();
                             }
-                            else if (hrs == 5 && min == 57 && sec==30){
-                                audio8.play();
-                                
+                            else if (hrs == 7 && min == 40 && sec == 0 && !isReloadedd){
+                                isReloaded = true; location.reload(); audio2.play();
                             }
-                            else if (hrs == 17 && min == 5 && sec==1){
-                                audio9.play();
-                                
+                            else if (hrs == 7 && min == 40 && sec == 0 && !isReloadedd){
+                                isReloaded = true; location.reload(); audio2.play();
                             }
-                            else if (hrs == 15 && min == 30 && sec==1){
-                                audio10.play();
-                                
+                            else if (hrs == 7 && min == 40 && sec == 0 && !isReloadedd){
+                                isReloaded = true; location.reload(); audio2.play();
                             }
-                            else if (hrs == 17 && min == 6 && sec==2){
-                                audio11.play();
-                                
+                            else if (hrs == 7 && min == 40 && sec == 0 && !isReloadedd){
+                                isReloaded = true; location.reload(); audio2.play();
                             }
-                            else if (hrs == 15 && min == 30 && sec==1){
-                                audio12.play();
-                                
+                            else if (hrs == 7 && min == 40 && sec == 0 && !isReloadedd){
+                                isReloaded = true; location.reload(); audio2.play();
                             }
-                            else if (hrs == 15 && min == 30 && sec==1){
-                                audio13.play();
-                                
+                            else if (hrs == 7 && min == 40 && sec == 0 && !isReloadedd){
+                                isReloaded = true; location.reload(); audio2.play();
                             }
-                            else if (hrs == 15 && min == 30 && sec==1){
-                                audio14.play();
-                                
+                            else if (hrs == 7 && min == 40 && sec == 0 && !isReloadedd){
+                                isReloaded = true; location.reload(); audio2.play();
                             }
-                        }
+                            
+                            
+                        } //akhir senin kamis
                         else{//kondisi ini berisikan jadwal khusus hari jumat
 
                         }
                     }
-                    else{//kondisi ini berisikan jadwal khusus upacara
-                        if(hrs == 16 && min == 07 && sec == 0 && !isReloaded){
-                                isReloaded = true; location.reload();audio1.play();                        
+                    else{//hari upacara
+                        if(hrs == 13 && min > 12 && sec > 0 && hrs < 14 && min 5 && sec 00  && !isReloaded){
+                                location.reload(); isReloaded = true;audio1.play();                        
                             }
-                    }        
+                            else if(hrs == 7 && min == 00 && sec == 0 && !isReloaded){
+                                location.reload(); isReloaded = true; audio2.play();                        
+                            }
+                            else if(hrs == 7 && min == 40 && sec == 0 && !isReloaded){
+                                isReloaded = true; location.reload();audio2.play();                        
+                            }
+                            else if(hrs == 8 && min == 20 && sec == 0 && !isReloaded){
+                                isReloaded = true; location.reload();audio2.play();                        
+                            }
+                            else if(hrs == 9 && min == 00 && sec == 0 && !isReloaded){
+                                isReloaded = true; location.reload();audio3.play();                        
+                            }
+                            else if(hrs == 9 && min == 40 && sec == 0 && !isReloaded){
+                                isReloaded = true; location.reload();audio4.play();                        
+                            }
+                            else if(hrs == 9 && min == 55 && sec == 0 && !isReloaded){
+                                isReloaded = true; location.reload();audio5.play();                        
+                            }
+                            else if(hrs == 10 && min == 35 && sec == 0 && !isReloaded){
+                                isReloaded = true; location.reload();audio6.play();                        
+                            }
+                            else if(hrs == 11 && min == 15 && sec == 0 && !isReloaded){
+                                isReloaded = true; location.reload();audio7.play();                        
+                            }
+                            else if(hrs == 11 && min == 55 && sec == 0 && !isReloaded){
+                                isReloaded = true; location.reload();audio8.play();                        
+                            }
+                            else if(hrs == 12 && min == 35 && sec == 0 && !isReloaded){
+                                isReloaded = true; location.reload();audio9.play();                        
+                            }
+                            else if(hrs == 13 && min == 15 && sec == 0 && !isReloaded){
+                                isReloaded = true; location.reload();audio10.play();                        
+                            }
+                            else if(hrs == 13 && min == 55 && sec == 0 && !isReloaded){
+                                isReloaded = true; location.reload();audio11.play();                        
+                            }
+                            else if(hrs == 14 && min == 35 && sec == 0 && !isReloaded){
+                                isReloaded = true; location.reload();audio12.play();                        
+                            }
+                            else if(hrs == 15 && min == 15 && sec == 0 && !isReloaded){
+                                isReloaded = true; location.reload();audio13.play();                        
+                            }
+                    } //penutup hari upacara        
 
                     document.getElementById('clock').innerHTML = hrs + ":" + min + ":" + sec;
                 }
             </script>
- <?php
-        if ($upacara == 0) {
-            if($hariIni != "Friday") {// kondisi untuk hari senin-kamis  
-                if ($current_time == "16:06") {
+<?php
+        if ($upacara == 0) { //bukan upacara
+            if($hariIni != "Friday") { 
+                if($current_time == "7:45"){              
                     $sql = "UPDATE alarm SET pelajaran = 8 WHERE id = 1";
                     $update = mysqli_query($db, $sql);
                 }
@@ -227,7 +256,7 @@
                     $sql = "UPDATE alarm SET pelajaran = 11 WHERE id = 1";
                     $update = mysqli_query($db, $sql);
                 }
-            }//akhir kondisi untuk hari senin-kamis
+            }//penutup senin-kamis
             else{//kondisi untuk hari jumat  
                     if ($current_time == "16:00") {
                         $sql = "UPDATE alarm SET pelajaran = 1 WHERE id = 1";
@@ -274,11 +303,11 @@
                         $update = mysqli_query($db, $sql);
                     }
                 
-            }//akhir kondisi untuk hari jumat
-        }
+            }//penutup hari jumat 
+        }//penutup bukan hari upacara
         else{//kondisi untuk hari upacara
-            if ($current_time == "16:07") {
-                $sql = "UPDATE alarm SET pelajaran = 2 WHERE id = 1";
+            if ($current_time > "13:12" && $current_time < "14:05") {
+                $sql = "UPDATE alarm SET pelajaran = 8 WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
             else if ($current_time == "7:35") {
@@ -321,7 +350,7 @@
                 $sql = "UPDATE alarm SET pelajaran = 11 WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
-        }    
+        }//penutup kondisi untuk hari upacara  
         
                 $select = "SELECT `pelajaran` FROM `alarm` WHERE id=1";
                 $result = mysqli_query($db, $select);
@@ -330,7 +359,7 @@
                 echo "Sekarang Pelajaran ke:aa " . $pelajaran . " ";
                 echo "<br>"; 
                 if($upacara == 0) {
-                    echo "sekarang tidak upacara";
+                    echo "sekarang Bukan Upacara";
                 } else {
                     echo "sekarang upacara";
                 }
@@ -344,7 +373,7 @@
                     <p id="pesan"></p>
                 </marquee> 
                 <script>
-                     let pelajaran = <?php echo $pelajaran ?>;
+                    let pelajaran = <?php echo $pelajaran ?>;
                     let waktu = new Date().getHours();
                     let menit = new Date().getMinutes();
                     let detik = new Date().getSeconds(); //tidak perlu, hanya mencoba
