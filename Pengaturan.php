@@ -11,7 +11,7 @@
     </script>
     </head>
 <style>
-   body {
+body {
         background-color:#d6eaf2 ;
     }
         /* Mengatur tampilan tombol */
