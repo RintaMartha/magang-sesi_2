@@ -266,7 +266,7 @@ body {
                         else if (hrs == 14 && min > 35 && sec > 0 && hrs < 15 && min < 14 && sec < 60 && !isReloaded) {
                             location.reload();
                             isReloaded = true;
-                            audio10.play();
+                            audio10.play(); 
                         }//hari upacara
                         
 
