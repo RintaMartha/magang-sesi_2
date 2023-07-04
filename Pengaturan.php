@@ -369,44 +369,44 @@ body {
                 $sql = "UPDATE alarm SET pelajaran = 'upacara'  WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
-            if ($current_time > "07:40" && $current_time < "08:19") {
+            else if ($current_time > "07:40" && $current_time < "08:19") {
                 $sql = "UPDATE alarm SET pelajaran = '1' WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
             
-            if ($current_time > "08:20" && $current_time < "08:59") {
+            else if ($current_time > "08:20" && $current_time < "08:59") {
                 $sql = "UPDATE alarm SET pelajaran = '2' WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
-            if ($current_time > "09:00" && $current_time < "09:39") {
+            else if ($current_time > "09:00" && $current_time < "09:39") {
                 $sql = "UPDATE alarm SET pelajaran = '3' WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
-            if ($current_time > "09:55" && $current_time < "10:34") {
+            else if ($current_time > "09:55" && $current_time < "10:34") {
                 $sql = "UPDATE alarm SET pelajaran = '4' WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
-            if ($current_time > "10:35" && $current_time < "11:14") {
+            else if ($current_time > "10:35" && $current_time < "11:14") {
                 $sql = "UPDATE alarm SET pelajaran = '5' WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
-            if ($current_time > "11:15" && $current_time < "11:54") {
+            else if ($current_time > "11:15" && $current_time < "11:54") {
                 $sql = "UPDATE alarm SET pelajaran = '6' WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
-            if ($current_time > "12:35" && $current_time < "13:14") {
+            else if ($current_time > "12:35" && $current_time < "13:14") {
                 $sql = "UPDATE alarm SET pelajaran = '7' WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
-            if ($current_time > "13:15" && $current_time < "13:54") {
+            else if ($current_time > "13:15" && $current_time < "13:54") {
                 $sql = "UPDATE alarm SET pelajaran = '8' WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
-            if ($current_time > "13:55" && $current_time < "14:34") {
+            else if ($current_time > "13:55" && $current_time < "14:34") {
                 $sql = "UPDATE alarm SET pelajaran = '9' WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
-            if ($current_time > "14:35" && $current_time < "15:15") {
+            else if ($current_time > "14:35" && $current_time < "15:15") {
                 $sql = "UPDATE alarm SET pelajaran = '10' WHERE id = 1";
                 $update = mysqli_query($db, $sql);
             }
