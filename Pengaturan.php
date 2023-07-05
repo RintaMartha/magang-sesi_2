@@ -416,7 +416,7 @@ body {
                 $result = mysqli_query($db, $select);
                 $row = mysqli_fetch_assoc($result);
                 $pelajaran = $row['pelajaran'];
-                echo "Sekarang Pelajaran ke:aa " . $pelajaran . " ";
+                echo "Sekarang Pelajaran ke: " . $pelajaran . " ";
                 echo "<br>"; 
                 if($upacara == 0) {
                     echo "sekarang Bukan Upacara";
