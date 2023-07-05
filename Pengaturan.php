@@ -278,7 +278,7 @@ body {
 <?php
         if ($upacara == 0) { //bukan upacara
             if($hariIni != "Friday") { //senin-kamis
-                if ($current_time > "07:00" && $current_time < "07:10") { //gnti dlu
+                if ($current_time > "07:00" && $current_time < "07:45") { //gnti dlu
                     $sql = "UPDATE alarm SET pelajaran = '1'  WHERE id = 1";
                     $update = mysqli_query($db, $sql);
                 }
