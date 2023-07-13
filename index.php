@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Halaman Pengaturan</title>
-        <link rel="stylesheet" href="pengaturan.css">
+        <link rel="stylesheet" href="index.css">
         <script>
         // Mencegah resubmit form saat halaman diperbarui
         if (window.history.replaceState) {
@@ -108,53 +108,53 @@ body {
                     var isUpacara = <?php echo $upacara; ?>;
                     
                     if (isUpacara == 0){ //ini bukan hari upacara
-                        if(thisDay !== 'Jum&#39;at'){ //senin kamis
-                            if (hrs == 21 && min > 39 && sec > 0 && hrs < 21 && min < 39 && sec < 60 && !isReloaded) {
+                        if(thisDay !== 'Jum&#39;at'){ //senin kamis 
+                            if (hrs == 7 && min == 00 && sec == 0 && hrs < 7 && min < 44 && sec < 60 && !isReloaded) {
                             location.reload();
                             isReloaded = true;
                             audio1.play();
                             }
-                            else if (hrs == 7 && min > 45 && sec > 0 && hrs < 8 && min < 29 && sec < 60 && !isReloaded) {
+                            else if (hrs == 7 && min == 45 && sec == 0 && hrs < 8 && min < 29 && sec < 60 && !isReloaded) {
                             location.reload();
                             isReloaded = true;
                             audio2.play();
                             }
-                            else if (hrs == 8 && min > 30 && sec > 0 && hrs < 9 && min < 14 && sec < 60 && !isReloaded) {
+                            else if (hrs == 8 && min == 30 && sec == 0 && hrs < 9 && min < 14 && sec < 60 && !isReloaded) {
                             location.reload();
                             isReloaded = true;
                             audio3.play();
                             }
-                            else if (hrs == 9 && min > 15 && sec > 0 && hrs < 9 && min < 59 && sec < 60 && !isReloaded) {
+                            else if (hrs == 9 && min == 15 && sec == 0 && hrs < 9 && min < 59 && sec < 60 && !isReloaded) {
                             location.reload();
                             isReloaded = true;
                             audio4.play();
                             }
-                            else if (hrs == 10 && min > 15 && sec > 0 && hrs < 10 && min < 59 && sec < 60 && !isReloaded) {
+                            else if (hrs == 10 && min == 15 && sec == 0 && hrs < 11 && min < 0 && sec < 60 && !isReloaded) {
                             location.reload();
                             isReloaded = true;
                             audio5.play();
                             }
-                            else if (hrs == 11 && min > 0 && sec > 0 && hrs < 11 && min < 44 && sec < 60 && !isReloaded) {
+                            else if (hrs == 11 && min == 0 && sec == 0 && hrs < 11 && min < 44 && sec < 60 && !isReloaded) {
                             location.reload();
                             isReloaded = true;
                             audio6.play();
                             }
-                            else if (hrs == 12 && min > 15 && sec > 0 && hrs < 12 && min < 59 && sec < 60 && !isReloaded) {
+                            else if (hrs == 12 && min == 15 && sec == 0 && hrs < 12 && min < 59 && sec < 60 && !isReloaded) {
                             location.reload();
                             isReloaded = true;
                             audio7.play();
                             }
-                            else if (hrs == 13 && min > 0 && sec > 0 && hrs < 13 && min < 44 && sec < 60 && !isReloaded) {
+                            else if (hrs == 13 && min == 0 && sec == 0 &&  min < 44 && sec < 60 && !isReloaded) {
                             location.reload();
                             isReloaded = true;
                             audio8.play();
                             }
-                            else if (hrs == 13 && min > 45 && sec > 0 && hrs < 14 && min < 29 && sec < 60 && !isReloaded) {
+                            else if (hrs == 13 && min == 45 && sec == 0 && hrs < 14 && min < 29 && sec < 60 && !isReloaded) {
                             location.reload();
                             isReloaded = true;
                             audio9.play();
                             }
-                            else if (hrs == 14 && min > 30 && sec > 0 && hrs < 15 && min < 15 && sec < 60 && !isReloaded) {
+                            else if (hrs == 14 && min == 21 && sec == 0 && hrs < 15 && min < 15 && sec < 60 && !isReloaded) {
                             location.reload();
                             isReloaded = true;
                             audio10.play();
@@ -278,44 +278,44 @@ body {
 <?php
         if ($upacara == 0) { //bukan upacara
             if($hariIni != "Friday") { //senin-kamis
-                if ($current_time > "07:00" && $current_time < "07:45") { //gnti dlu
+                if ($current_time == "07:00" && $current_time < "07:44") { //gnti dlu
                     $sql = "UPDATE alarm SET pelajaran = '1'  WHERE id = 1";
                     $update = mysqli_query($db, $sql);
                 }
-                else if ($current_time > "07:45" && $current_time < "08:29") {
+                else if ($current_time == "07:45" && $current_time < "08:29") {
                     $sql = "UPDATE alarm SET pelajaran = '2'  WHERE id = 1";
                     $update = mysqli_query($db, $sql);
                 }
-                else if ($current_time > "08:30" && $current_time < "09:14") {
+                else if ($current_time == "08:30" && $current_time < "09:14") {
                     $sql = "UPDATE alarm SET pelajaran = '3'  WHERE id = 1";
                     $update = mysqli_query($db, $sql);
                 }
-                else if ($current_time > "09:15" && $current_time < "10:00") {
+                else if ($current_time == "09:15" && $current_time < "09:59") {
                     $sql = "UPDATE alarm SET pelajaran = '4'  WHERE id = 1";
                     $update = mysqli_query($db, $sql);
                 }
-                else if ($current_time > "10:15" && $current_time < "10:59") {
+                else if ($current_time == "10:00" && $current_time < "10:59") {
                     $sql = "UPDATE alarm SET pelajaran = '5'  WHERE id = 1";
                     $update = mysqli_query($db, $sql);
                 }
-                else if ($current_time > "11:00" && $current_time < "11:45") {
+                else if ($current_time == "11:00" && $current_time < "11:44") {
                     $sql = "UPDATE alarm SET pelajaran = '6'  WHERE id = 1";
                     $update = mysqli_query($db, $sql);
                 }
-                else if ($current_time > "12:15" && $current_time < "12:59") {
+                else if ($current_time == "12:15" && $current_time < "12:59") {
                     $sql = "UPDATE alarm SET pelajaran = '7'  WHERE id = 1";
                     $update = mysqli_query($db, $sql);
                 }
-                else if ($current_time > "13:00" && $current_time < "13:44") {
+                else if ($current_time == "13:00" && $current_time < "13:44") {
                     $sql = "UPDATE alarm SET pelajaran = '8'  WHERE id = 1";
                     $update = mysqli_query($db, $sql);
                 }
-                else if ($current_time > "13:45" && $current_time < "14:29") {
+                else if ($current_time == "13:45" && $current_time < "14:29") {
                     $sql = "UPDATE alarm SET pelajaran = '9'  WHERE id = 1";
                     $update = mysqli_query($db, $sql);
                 }
-                else if ($current_time > "14:30" && $current_time < "15:15") {
-                    $sql = "UPDATE alarm SET pelajaran = '10'  WHERE id = 1";
+                else if ($current_time == "14:21" && $current_time < "15:15") {
+                    $sql = "UPDATE alarm SET pelajaran = '77'  WHERE id = 1";
                     $update = mysqli_query($db, $sql);
                 }
                 
@@ -449,17 +449,15 @@ body {
                     }
                     
                     document.getElementById("pesan").innerHTML = ucapan;
-
                 </script>
-              </div>  
+                </div>  
             </div>
-      <div class="button">
+        <div class="button">
             <form method="POST">
                 <input class="upacara <?php if ($_SESSION['upacara'] == 1) echo 'active'; ?>" type="submit" value="Upacara" name="upacara">
                 <input class="cancel <?php if ($_SESSION['upacara'] == 0) echo 'active'; ?>" type="submit" value="Bukan Upacara" name="cancel">
             </form>
-        </div>
-            
+        </div>  
         </center>
     </body>
     
