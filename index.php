@@ -109,7 +109,7 @@ body {
                     
                     if (isUpacara == 0){ //ini bukan hari upacara
                         if(thisDay !== 'Jum&#39;at'){ //senin kamis 
-                            if (hrs == 7 && min == 00 && sec == 0 && hrs < 7 && min < 44 && sec < 60 && !isReloaded) {
+                            if (hrs == 20 && min == 21 && sec == 0 && hrs < 21 && min < 44 && sec < 60 && !isReloaded) {
                             location.reload();
                             isReloaded = true;
                             audio1.play();
@@ -278,7 +278,7 @@ body {
 <?php
         if ($upacara == 0) { //bukan upacara
             if($hariIni != "Friday") { //senin-kamis
-                if ($current_time == "07:00" && $current_time < "07:44") { //gnti dlu
+                if ($current_time == "20:21" && $current_time < "22:44") { //gnti dlu
                     $sql = "UPDATE alarm SET pelajaran = '1'  WHERE id = 1";
                     $update = mysqli_query($db, $sql);
                 }
