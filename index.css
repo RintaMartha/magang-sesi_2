@@ -38,7 +38,7 @@ body {
     background-color:rgb(26, 108, 233);
     width: 325px;
     height: 155px;
-    margin: 20px 100px 45px 100px;
+    margin: 20px 50px 45px 50px;
     border-style: solid;
     border-color:#ffff;
     border-radius: 7px;
@@ -46,10 +46,10 @@ body {
     
 }
 .font {
-    font-size: 90px;
+    font-size: 100px;
     font-family: 'Segoe UI';
-    color: white;
-    margin-top: 5px;
+    color: rgb(194, 93, 93);
+    margin-top: 2px;
     
 }
 
