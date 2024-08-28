@@ -1,3 +1,17 @@
+<?php
+        session_start();
+        include "config.php";
+        date_default_timezone_set('Asia/Jakarta');
+        $current_time = date('H:i');
+        $hariIni = date('l');
+        $upacara = isset($_SESSION['upacara']) ? $_SESSION['upacara'] : 0;
+        if (isset($_POST['upacara'])) {
+            $upacara = 1;
+        } else if (isset($_POST['cancel'])) {
+            $upacara = 0;
+        }
+        $_SESSION['upacara'] = $upacara;
+        ?>  
 <!DOCTYPE html>
 <html>
     <head>
@@ -55,20 +69,7 @@ body {
         <hr />
                 </center>
         </div>
-        <?php
-        session_start();
-        include "config.php";
-        date_default_timezone_set('Asia/Jakarta');
-        $current_time = date('H:i');
-        $hariIni = date('l');
-        $upacara = isset($_SESSION['upacara']) ? $_SESSION['upacara'] : 0;
-        if (isset($_POST['upacara'])) {
-            $upacara = 1;
-        } else if (isset($_POST['cancel'])) {
-            $upacara = 0;
-        }
-        $_SESSION['upacara'] = $upacara;
-        ?>  
+        
         <div class="tanggal">
                 <script type='text/javascript'>
                     var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
@@ -81,337 +82,191 @@ body {
         </div>   
         <!-----------BEL--------------->
         <p id="clock"></p>
-            <script>
-                setInterval(customClock, 500);
-                function customClock() {
-                    var time = new Date();
-                    var hrs = time.getHours();
-                    var min = time.getMinutes();
-                    var sec = time.getSeconds();
-                    var milsec = time.getMilliseconds();
-                    var count = 0;
-                    var audio1 = new Audio('Bel/01.mp3');
-                    var audio2 = new Audio('Bel/02.mp3');
-                    var audio3 = new Audio('Bel/03.mp3');
-                    var audio4 = new Audio('Bel/04.mp3');
-                    var audio5 = new Audio('Bel/05.mp3');
-                    var audio6 = new Audio('Bel/06.mp3');
-                    var audio7 = new Audio('Bel/07.mp3');
-                    var audio8 = new Audio('Bel/08.mp3');
-                    var audio9 = new Audio('Bel/09.mp3');
-                    var audio10 = new Audio('Bel/010.mp3');
-                    var audio11 = new Audio('Bel/011.mp3'); //start in 5mnt
-                    var audio12 = new Audio('Bel/012.mp3'); //breaktime empty in 5 mnt
-                    var audio13 = new Audio('Bel/013.mp3'); //breaktime
-                    var audio14 = new Audio('Bel/014.mp3'); //pulang
-                    var isReloaded = false;
-                    var isUpacara = <?php echo $upacara; ?>;
+    <script>
+            setInterval(customClock, 500);
+            var audio = [
+                new Audio('Bel/01.mp3'),
+                new Audio('Bel/02.mp3'),
+                new Audio('Bel/03.mp3'),
+                new Audio('Bel/04.mp3'),
+                new Audio('Bel/05.mp3'),
+                new Audio('Bel/06.mp3'),
+                new Audio('Bel/07.mp3'),
+                new Audio('Bel/08.mp3'),
+                new Audio('Bel/09.mp3'),
+                new Audio('Bel/010.mp3'),
+                new Audio('Bel/011.mp3'),
+                new Audio('Bel/012.mp3'),
+                new Audio('Bel/013.mp3'),
+                new Audio('Bel/014.mp3')
+            ];
+            var isReloaded = false;
+            var isUpacara = <?php echo $upacara; ?>;
+
+            function customClock() {
+                var time = new Date();
+                var hrs = time.getHours();
+                var min = time.getMinutes();
+                var sec = time.getSeconds();
+                var milsec = time.getMilliseconds();
+                var thisDay = '<?php echo $hariIni; ?>';
+
+                if (isUpacara == 0) {
+                    if (thisDay !== 'Jum&#39;at') {
+                        var jadwal = [
+                            ["07:00", "07:44", 0],
+                            ["07:45", "08:29", 1],
+                            ["08:30", "09:14", 2],
+                            ["09:15", "09:59", 3],
+                            ["10:00", "10:59", 4],
+                            ["11:00", "11:44", 5],
+                            ["12:15", "12:59", 6],
+                            ["13:00", "13:44", 7],
+                            ["13:45", "14:29", 8],
+                            ["14:21", "15:15", 9],
+                            ["00:06", "00:07", 10]
+                        ];
+                    } else {
+                        var jadwal = [
+                            ["07:00", "07:34", 0],
+                            ["07:35", "08:09", 1],
+                            ["08:10", "08:44", 2],
+                            ["08:45", "09:19", 3],
+                            ["09:35", "10:09", 4],
+                            ["10:10", "10:44", 5],
+                            ["10:45", "12:19", 6],
+                            ["11:20", "11:55", 7],
+                            ["12:50", "13:24", 8],
+                            ["13:25", "14:00", 9]
+                        ];
+                    }
+                } else {
+                    var jadwal = [
+                        ["07:00", "07:39", "upacara"],
+                        ["07:40", "08:19", 1],
+                        ["08:20", "08:59", 2],
+                        ["09:00", "09:39", 3],
+                        ["09:55", "10:34", 4],
+                        ["10:35", "11:14", 5],
+                        ["11:15", "11:54", 6],
+                        ["12:35", "13:14", 7],
+                        ["13:15", "13:54", 8],
+                        ["13:55", "14:34", 9],
+                        ["14:35", "15:15", 10]
+                    ];
+                }
+
+                for (var i = 0; i < jadwal.length; i++) {
+                    var jadwalPelajaran = jadwal[i];
+                    var start = jadwalPelajaran[0].split(":");
+                    var end = jadwalPelajaran[1].split(":");
+                    var audioIndex = jadwalPelajaran[2];
+
+                    if (
+                        hrs == start[0] &&
+                        min == start[1] &&
+                        sec == 0 &&
+                        hrs < end[0] &&
+                        min < end[1] &&
+                        sec < 60 &&
+                        !isReloaded
+                    ) {
+                        location.reload();
+                        isReloaded = true;
+                        audio[audioIndex].play();
+                        break;
+                    }
+                }
+
+                document.getElementById('clock').innerHTML = hrs + ":" + min + ":" + sec;
+            }
+</script>
+
+<?php
+                if ($upacara == 0) {
+                    $jadwalSeninKamis = [
+                        ["07:00", "07:44", "1"],
+                        ["07:45", "08:29", "2"],
+                        ["08:30", "09:14", "3"],
+                        ["09:15", "09:59", "4"],
+                        ["10:00", "10:59", "5"],
+                        ["11:00", "11:44", "6"],
+                        ["12:15", "12:59", "7"],
+                        ["13:00", "13:44", "8"],
+                        ["13:45", "14:29", "9"],
+                        ["14:21", "15:15", "10"],
+                        ["23:57", "23:59", '11']
+                    ];
+
+                    $jadwalJumat = [
+                        ["07:00", "07:34", "1"],
+                        ["07:35", "08:09", "2"],
+                        ["08:10", "08:44", "3"],
+                        ["08:45", "09:19", "4"],
+                        ["09:35", "10:09", "5"],
+                        ["10:10", "10:44", "6"],
+                        ["10:45", "12:19", "7"],
+                        ["11:20", "11:55", "8"],
+                        ["12:50", "13:24", "9"],
+                        ["13:25", "14:00", "10"]
+                    ];
+
+                    $jadwalUpacara = [
+                        ["07:00", "07:39", "upacara"],
+                        ["07:40", "08:19", "1"],
+                        ["08:20", "08:59", "2"],
+                        ["09:00", "09:39", "3"],
+                        ["09:55", "10:34", "4"],
+                        ["10:35", "11:14", "5"],
+                        ["11:15", "11:54", "6"],
+                        ["12:35", "13:14", "7"],
+                        ["13:15", "13:54", "8"],
+                        ["13:55", "14:34", "9"],
+                        ["14:35", "15:15", "10"]
+                    ];
+
+                    $current_time = date("H:i");
+
+                    $jadwal = ($hariIni != "Friday") ? $jadwalSeninKamis : $jadwalJumat;
                     
-                    if (isUpacara == 0){ //ini bukan hari upacara
-                        if(thisDay !== 'Jum&#39;at'){ //senin kamis 
-                            if (hrs == 20 && min == 21 && sec == 0 && hrs < 21 && min < 44 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio1.play();
-                            }
-                            else if (hrs == 7 && min == 45 && sec == 0 && hrs < 8 && min < 29 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio2.play();
-                            }
-                            else if (hrs == 8 && min == 30 && sec == 0 && hrs < 9 && min < 14 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio3.play();
-                            }
-                            else if (hrs == 9 && min == 15 && sec == 0 && hrs < 9 && min < 59 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio4.play();
-                            }
-                            else if (hrs == 10 && min == 15 && sec == 0 && hrs < 11 && min < 0 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio5.play();
-                            }
-                            else if (hrs == 11 && min == 0 && sec == 0 && hrs < 11 && min < 44 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio6.play();
-                            }
-                            else if (hrs == 12 && min == 15 && sec == 0 && hrs < 12 && min < 59 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio7.play();
-                            }
-                            else if (hrs == 13 && min == 0 && sec == 0 &&  min < 44 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio8.play();
-                            }
-                            else if (hrs == 13 && min == 45 && sec == 0 && hrs < 14 && min < 29 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio9.play();
-                            }
-                            else if (hrs == 14 && min == 21 && sec == 0 && hrs < 15 && min < 15 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio10.play();
-                            }
-                            
-                            
-                        } //akhir senin kamis
-                        else{//kondisi ini berisikan jadwal khusus hari jumat
-                            if (hrs == 7 && min > 0 && sec > 0 && hrs < 7 && min < 34 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio1.play();
-                            }
-                            else if (hrs == 7 && min > 35 && sec > 0 && hrs < 8 && min < 09 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio2.play();
-                            }
-                            else if (hrs == 8 && min > 10 && sec > 0 && hrs < 8 && min < 44 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio3.play();
-                            }
-                            else if (hrs == 8 && min > 45 && sec > 0 && hrs < 9 && min < 20 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio4.play();
-                            }
-                            else if (hrs == 9 && min > 35 && sec > 0 && hrs < 10 && min < 9 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio5.play();
-                            }
-                            else if (hrs == 10 && min > 10 && sec > 0 && hrs < 10 && min < 44 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio6.play();
-                            }
-                            else if (hrs == 10 && min > 45 && sec > 0 && hrs < 11 && min < 19 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio7.play();
-                            }
-                            else if (hrs == 11 && min > 20 && sec > 0 && hrs < 11 && min < 55 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio8.play();
-                            }
-                            else if (hrs == 12 && min > 50 && sec > 0 && hrs < 13 && min < 24 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio9.play();
-                            }
-                            else if (hrs == 13 && min > 25 && sec > 0 && hrs < 14 && min < 00 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio10.play();
-                            }
-
-
+                    foreach ($jadwal as $jadwalPelajaran) {
+                        list($start, $end, $pelajaran) = $jadwalPelajaran;
+                        $current_time = date("H:i"); // Perbarui waktu saat ini dalam setiap iterasi
+                    
+                        if ($current_time >= $start && $current_time <= $end) {
+                            $sql = "UPDATE alarm SET pelajaran = '$pelajaran' WHERE id = 1";
+                            $update = mysqli_query($db, $sql);
+                            break;
                         }
                     }
-                    else{//hari upacara
-                        if (hrs == 7 && min > 0 && sec > 0 && hrs < 7 && min < 39 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio1.play();
-                        }
-                        else if (hrs == 8 && min > 20 && sec > 0 && hrs < 8 && min < 59 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio2.play();
-                        }
-                        else if (hrs == 9 && min > 00 && sec > 0 && hrs < 9 && min < 39 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio3.play();
-                        }
-                        else if (hrs == 9 && min > 55 && sec > 0 && hrs < 10 && min < 34 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio4.play();
-                        }
-                        else if (hrs == 10 && min > 35 && sec > 0 && hrs < 11 && min < 14 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio5.play();
-                        }
-                        else if (hrs == 11 && min > 15 && sec > 0 && hrs < 11 && min < 54 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio6.play();
-                        }
-                        else if (hrs == 12 && min > 35 && sec > 0 && hrs < 13 && min < 14 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio7.play();
-                        }
-                        else if (hrs == 13 && min > 15 && sec > 0 && hrs < 13 && min < 54 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio8.play();
-                        }
-                        else if (hrs == 13 && min > 55 && sec > 0 && hrs < 14 && min < 34 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio9.play();
-                        }
-                        else if (hrs == 14 && min > 35 && sec > 0 && hrs < 15 && min < 14 && sec < 60 && !isReloaded) {
-                            location.reload();
-                            isReloaded = true;
-                            audio10.play(); 
-                        }//hari upacara
-                        
+                    
+                } else {
+                    $jadwalUpacara = [
+                        ["07:00", "07:39", "upacara"],
+                        ["07:40", "08:19", "1"],
+                        ["08:20", "08:59", "2"],
+                        ["09:00", "09:39", "3"],
+                        ["09:55", "10:34", "4"],
+                        ["10:35", "11:14", "5"],
+                        ["11:15", "11:54", "6"],
+                        ["12:35", "13:14", "7"],
+                        ["13:15", "13:54", "8"],
+                        ["13:55", "14:34", "9"],
+                        ["14:35", "15:15", "10"]
+                    ];
 
-                    } //penutup hari upacara        
+                    $current_time = date("H:i");
 
-                    document.getElementById('clock').innerHTML = hrs + ":" + min + ":" + sec;
+                    foreach ($jadwalUpacara as $jadwalPelajaran) {
+                        list($start, $end, $pelajaran) = $jadwalPelajaran;
+                        if ($current_time >= $start && $current_time <= $end) {
+                            $sql = "UPDATE alarm SET pelajaran = '$pelajaran' WHERE id = 1";
+                            $update = mysqli_query($db, $sql);
+                            break;
+                        }
+                    }
                 }
-            </script>
-<?php
-        if ($upacara == 0) { //bukan upacara
-            if($hariIni != "Friday") { //senin-kamis
-                if ($current_time == "20:21" && $current_time < "22:44") { //gnti dlu
-                    $sql = "UPDATE alarm SET pelajaran = '1'  WHERE id = 1";
-                    $update = mysqli_query($db, $sql);
-                }
-                else if ($current_time == "07:45" && $current_time < "08:29") {
-                    $sql = "UPDATE alarm SET pelajaran = '2'  WHERE id = 1";
-                    $update = mysqli_query($db, $sql);
-                }
-                else if ($current_time == "08:30" && $current_time < "09:14") {
-                    $sql = "UPDATE alarm SET pelajaran = '3'  WHERE id = 1";
-                    $update = mysqli_query($db, $sql);
-                }
-                else if ($current_time == "09:15" && $current_time < "09:59") {
-                    $sql = "UPDATE alarm SET pelajaran = '4'  WHERE id = 1";
-                    $update = mysqli_query($db, $sql);
-                }
-                else if ($current_time == "10:00" && $current_time < "10:59") {
-                    $sql = "UPDATE alarm SET pelajaran = '5'  WHERE id = 1";
-                    $update = mysqli_query($db, $sql);
-                }
-                else if ($current_time == "11:00" && $current_time < "11:44") {
-                    $sql = "UPDATE alarm SET pelajaran = '6'  WHERE id = 1";
-                    $update = mysqli_query($db, $sql);
-                }
-                else if ($current_time == "12:15" && $current_time < "12:59") {
-                    $sql = "UPDATE alarm SET pelajaran = '7'  WHERE id = 1";
-                    $update = mysqli_query($db, $sql);
-                }
-                else if ($current_time == "13:00" && $current_time < "13:44") {
-                    $sql = "UPDATE alarm SET pelajaran = '8'  WHERE id = 1";
-                    $update = mysqli_query($db, $sql);
-                }
-                else if ($current_time == "13:45" && $current_time < "14:29") {
-                    $sql = "UPDATE alarm SET pelajaran = '9'  WHERE id = 1";
-                    $update = mysqli_query($db, $sql);
-                }
-                else if ($current_time == "14:21" && $current_time < "15:15") {
-                    $sql = "UPDATE alarm SET pelajaran = '77'  WHERE id = 1";
-                    $update = mysqli_query($db, $sql);
-                }
-                
-            }//penutup senin-kamis
-            else{//kondisi untuk hari jumat  
-                if ($current_time > "07:00" && $current_time < "07:34") {
-                    $sql = "UPDATE alarm SET pelajaran = '1'  WHERE id = 1";
-                    $update = mysqli_query($db, $sql);
-                }
-                else if ($current_time > "07:35" && $current_time < "08:09") {
-                    $sql = "UPDATE alarm SET pelajaran = '2'  WHERE id = 1";
-                    $update = mysqli_query($db, $sql);
-                }
-                else if ($current_time > "08:10" && $current_time < "08:44") {
-                    $sql = "UPDATE alarm SET pelajaran = '3'  WHERE id = 1";
-                    $update = mysqli_query($db, $sql);
-                }
-                else if ($current_time > "08:45" && $current_time < "09:19") {
-                    $sql = "UPDATE alarm SET pelajaran = '4'  WHERE id = 1";
-                    $update = mysqli_query($db, $sql);
-                }
-                else if ($current_time > "09:35" && $current_time < "10:09") {
-                    $sql = "UPDATE alarm SET pelajaran = '5'  WHERE id = 1";
-                    $update = mysqli_query($db, $sql);
-                }
-                else if ($current_time > "10:10" && $current_time < "10:44") {
-                    $sql = "UPDATE alarm SET pelajaran = '6'  WHERE id = 1";
-                    $update = mysqli_query($db, $sql);
-                }
-                else if ($current_time > "10:45" && $current_time < "12:19") {
-                    $sql = "UPDATE alarm SET pelajaran = '7'  WHERE id = 1";
-                    $update = mysqli_query($db, $sql);
-                }
-                else if ($current_time > "11:20" && $current_time < "11:55") {
-                    $sql = "UPDATE alarm SET pelajaran = '8'  WHERE id = 1";
-                    $update = mysqli_query($db, $sql);
-                }
-                else if ($current_time > "12:50" && $current_time < "13:24") {
-                    $sql = "UPDATE alarm SET pelajaran = '9'  WHERE id = 1";
-                    $update = mysqli_query($db, $sql);
-                }
-                else if ($current_time > "13:25" && $current_time < "14:00") {
-                    $sql = "UPDATE alarm SET pelajaran = '10'  WHERE id = 1";
-                    $update = mysqli_query($db, $sql);
-                }
-                
-            }//penutup hari jumat 
-        }//penutup bukan hari upacara
-        else{//kondisi untuk hari upacara
-            if ($current_time > "07:00" && $current_time < "07:39") {
-                $sql = "UPDATE alarm SET pelajaran = 'upacara'  WHERE id = 1";
-                $update = mysqli_query($db, $sql);
-            }
-            else if ($current_time > "07:40" && $current_time < "08:19") {
-                $sql = "UPDATE alarm SET pelajaran = '1' WHERE id = 1";
-                $update = mysqli_query($db, $sql);
-            }
-            
-            else if ($current_time > "08:20" && $current_time < "08:59") {
-                $sql = "UPDATE alarm SET pelajaran = '2' WHERE id = 1";
-                $update = mysqli_query($db, $sql);
-            }
-            else if ($current_time > "09:00" && $current_time < "09:39") {
-                $sql = "UPDATE alarm SET pelajaran = '3' WHERE id = 1";
-                $update = mysqli_query($db, $sql);
-            }
-            else if ($current_time > "09:55" && $current_time < "10:34") {
-                $sql = "UPDATE alarm SET pelajaran = '4' WHERE id = 1";
-                $update = mysqli_query($db, $sql);
-            }
-            else if ($current_time > "10:35" && $current_time < "11:14") {
-                $sql = "UPDATE alarm SET pelajaran = '5' WHERE id = 1";
-                $update = mysqli_query($db, $sql);
-            }
-            else if ($current_time > "11:15" && $current_time < "11:54") {
-                $sql = "UPDATE alarm SET pelajaran = '6' WHERE id = 1";
-                $update = mysqli_query($db, $sql);
-            }
-            else if ($current_time > "12:35" && $current_time < "13:14") {
-                $sql = "UPDATE alarm SET pelajaran = '7' WHERE id = 1";
-                $update = mysqli_query($db, $sql);
-            }
-            else if ($current_time > "13:15" && $current_time < "13:54") {
-                $sql = "UPDATE alarm SET pelajaran = '8' WHERE id = 1";
-                $update = mysqli_query($db, $sql);
-            }
-            else if ($current_time > "13:55" && $current_time < "14:34") {
-                $sql = "UPDATE alarm SET pelajaran = '9' WHERE id = 1";
-                $update = mysqli_query($db, $sql);
-            }
-            else if ($current_time > "14:35" && $current_time < "15:15") {
-                $sql = "UPDATE alarm SET pelajaran = '10' WHERE id = 1";
-                $update = mysqli_query($db, $sql);
-            }
-        }//penutup kondisi untuk hari upacara  
-        
+
                 $select = "SELECT `pelajaran` FROM `alarm` WHERE id=1";
                 $result = mysqli_query($db, $select);
                 $row = mysqli_fetch_assoc($result);
@@ -419,12 +274,12 @@ body {
                 echo "Sekarang Pelajaran ke: " . $pelajaran . " ";
                 echo "<br>"; 
                 if($upacara == 0) {
-                    echo "sekarang Bukan Upacara";
+                    echo "Sekarang Bukan Upacara";
                 } else {
-                    echo "sekarang upacara";
+                    echo "Sekarang Upacara";
                 }
-
 ?>
+
 
             <!------------------------------->
             <div class="bannerled">
